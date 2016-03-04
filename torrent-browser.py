@@ -1,4 +1,7 @@
-import gtk, webkit, urllib, re
+import gtk
+import webkit
+import urllib
+import json
 
 head = '''
 <html>
@@ -7,21 +10,25 @@ head = '''
 p {
     font-size: 60%;
 }
+#content {
+  width: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
 </style>
 <title>Page title here</title>
 </head>
 <body>
-    <div>
-        <p>'''
+    <div>'''
 foot = '</p></div></body></html>'
 def omdb_call(name,year):
     url = 'http://www.omdbapi.com/?t={0}&y={1}&plot=full&r=json'.format(name,year)
     data = urllib.urlopen(url).read()
-    data = data.replace(',', '<br>')
-    data = data.replace('"','')
-    data = data.replace('{','')
-    data = data.replace('}','')
-    return data
+    json_data = json.loads(data)
+    poster = json_data["Poster"]
+    urllib.urlretrieve(poster, json_data["Title"])
+    info = '<img src="{0}"/>'.format(poster) + json_data["Title"] + '<br>' + json_data["Year"] + '<br>' + json_data["Rated"] + '<br>' + json_data["Released"] + '<br>' + json_data["Runtime"]
+    return info
 test_stuff = omdb_call('brick','2005')
 
 # Create window
