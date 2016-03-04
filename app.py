@@ -19,5 +19,5 @@ def populate_movie(name,year):
     return render_template('index.html', data=json_data, magnet=magnets[0])
 
 if __name__ == '__main__':
-	app.debug = True # turn off in production
-	app.run()
+    app.debug = True # turn off in production
+    app.run()

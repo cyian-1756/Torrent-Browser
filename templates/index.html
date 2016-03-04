@@ -2,34 +2,34 @@
 <html>
 <head>
 <style>
-	p {
-	    font-size: 60%;
-	    text-align: center;
-	}
-	#content {
-	  	width: 700px ;
-	  	margin-left: auto ;
-	 	margin-right: auto ;
-	}
-	.center {
-		display: block;
-    	margin: 0 auto;
-	}
-	a.center{
-		text-align: center;
-	}
+    p {
+        font-size: 60%;
+        text-align: center;
+    }
+    #content {
+        width: 700px ;
+        margin-left: auto ;
+        margin-right: auto ;
+    }
+    .center {
+        display: block;
+        margin: 0 auto;
+    }
+    a.center{
+        text-align: center;
+    }
 </style>
 <title>Torrent Browser</title>
 </head>
 <body>
     <div id='content'>
-		<img class='center' src="{{ data['Poster'] }}"/>
-		{% for i in ['Title', 'Year', 'Rated', 'Released', 'Runtime'] %}
-		{% if data[i] != 'N/A' %}
-		<p>{{ i }}: {{ data[i] }}</p>
-		{% endif %}
-		{% endfor %}
-		<a class='center' href='{{ magnet }}'>Download</a>
-	</div>
+        <img class='center' src="{{ data['Poster'] }}"/>
+        {% for i in ['Title', 'Year', 'Rated', 'Released', 'Runtime'] %}
+        {% if data[i] != 'N/A' %}
+        <p>{{ i }}: {{ data[i] }}</p>
+        {% endif %}
+        {% endfor %}
+        <a class='center' href='{{ magnet }}'>Download</a>
+    </div>
 </body>
 </html>
