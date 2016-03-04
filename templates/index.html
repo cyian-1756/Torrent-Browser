@@ -5,6 +5,7 @@
 <style>
 	p {
 	    font-size: 60%;
+	    text-align: center;
 	}
 	#content {
 	  width: 700px ;
@@ -15,8 +16,10 @@
 <title>Page title here</title>
 </head>
 <body>
-    <div>
-    	{{ body|safe }}
+    <div id="content">
+    	<p>
+    		{{ body|safe }}
+    	</p>
 	</div>
 </body>
 </html>

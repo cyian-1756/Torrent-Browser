@@ -12,7 +12,7 @@ def omdb_call(name,year):
     data = urllib.urlopen(url).read()
     json_data = json.loads(data)
     poster = json_data["Poster"]
-    info = '<img src="{0}"/>'.format(poster) + json_data["Title"] + '<br>' + json_data["Year"] + '<br>' + json_data["Rated"] + '<br>' + json_data["Released"] + '<br>' + json_data["Runtime"]
+    info = '<img src="{0}"/>'.format(poster) + '<br>' + json_data["Title"] + '<br>' + json_data["Year"] + '<br>' + json_data["Rated"] + '<br>' + json_data["Released"] + '<br>' + json_data["Runtime"]
 
     return render_template('index.html', body=info)
 
